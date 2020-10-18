@@ -1,0 +1,3 @@
+{
+    "mongoURL":"mongodb+srv://user_pass:Pass_User@cluster0.72vy5.gcp.mongodb.net/db_pass?retryWrites=true&w=majority"
+}
