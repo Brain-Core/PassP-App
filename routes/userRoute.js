@@ -24,8 +24,8 @@ route.post('/', async (req,res)=>{
                 //chiffrer mot de passe
                 bcrypt.genSalt(10,(err, salt)=>{ // crypt password by generating a code
                     if(err) throw err;
-                    bcrypt.hash(newUser.password, salt, (err, hash)=>{ 
-                        console.log(newUser.password)// hashing password
+                    bcrypt.hash(newUser.password, salt, (err, hash)=>{
+                        // hashing password
                         if(err) throw err;
                         newUser.password = hash; // hashed password is putting to the user password
                         newUser.save()
