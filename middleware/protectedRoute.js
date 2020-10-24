@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 
 const protectRoute = (req, res, next) => {
-    const token = req.header['app-token'];
+    const token = req.header('app-token');
     if(!token) res.status(400).json({msg: 'no token' })
 
     try{

@@ -1,8 +1,8 @@
 const route = require('express').Router();
 const Profile = require('../models/profile.model');
+const protect = require('../middleware/protectedRoute');
 
-
-route.post('/', async (req,res)=>{
+route.post('/',protect, async (req,res)=>{
     const { 
         name, 
         firstname, 
