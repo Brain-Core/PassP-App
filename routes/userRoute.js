@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-
 // registration
 route.post('/', async (req,res)=>{
     const { name, phone, username, password } = req.body;
@@ -52,7 +51,6 @@ route.post('/', async (req,res)=>{
             }
         })
         .catch(err => res.json(err));
-
 })
 
 module.exports = route;

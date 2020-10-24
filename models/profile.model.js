@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../connect/index');
 
 const ProfileSchema = mongoose.Schema({
     name: {type: String, required:[true, 'Name field is required']},
