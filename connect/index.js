@@ -5,3 +5,5 @@ const dbPath = config.get('mongoURL');
 mongoose.connect(dbPath, {useCreateIndex:true, useNewUrlParser: true, useUnifiedTopology:true}, ()=> {
     console.log('connected to mongodb successfully');
 });
+
+module.exports = mongoose;

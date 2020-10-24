@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../connect/index');
 
 const userSchema = mongoose.Schema({
     name: {type:String, required:true},
