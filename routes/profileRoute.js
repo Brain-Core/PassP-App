@@ -21,30 +21,26 @@ route.post('/',protect, async (req,res)=>{
         })
         .catch(err => res.json({msg: err}));
 
-route.put('/:id',protect, (req, res) => {
-    const { 
-        name, 
-        firstname, 
-        lastname, 
-        Sex, 
-        lieuNaissance, 
-        dateNaissance,
-         Nationalite, 
-         Taille} = req.body;
-
-         const newProfile = new Profile({name, firstname, lastname, Sex, lieuNaissance, dateNaissance, Nationalite, Taille})
-
-         Profile.findByIdAndUpdate(req.params.id, newProfile)
-            .then(() => {
-                res.json('profile Edited succesfully')
-            })
-            .catch(err => res.json({msg: err}))
 });
 
-route.delete('/:id',protect, (req, res) => {
-    Profile.findByIdAndDelete(req.params.id)
-        .then(() => res.json({msg: "Profile deleted successfuly"}))
+route.put('/:id', protect, (req, res) => {
+    Profile.findByIdAndUpdate({_id: req.params.id}, req.body)
+        .then(() => res.send('The profile has been updated'))
+        .catch((err) => res.status(400).send(err.message));
 });
-})
+
+route.delete('/profile/:id',protect, (req, res) => {
+    Profile.findByIdAndDelete({_id:req.params.id})
+    .then(() => res.send('The Profile has been deleted'))
+    .catch((err) => res.status(400).send(err.message));
+});
+
+/*
+route.delete('/delete/:id',protect, (req, res) => {
+    Profile.findById(req.params.id)
+    .then(profile => profile.remove().then(()=> res.json({success: true})))
+    .catch(err => res.status(404).json({success: false}))
+
+*/
 
 module.exports = route;
