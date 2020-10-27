@@ -14,7 +14,7 @@ class SignUp extends Component {
                 <br/><br/>
                 <input type='password' name='txt_password' placeholder='Enter the password'  className='form-control'/>
                 <br/><br/>
-                <input type='password' name='txt_passwordConfirm' placeholder='confirm the password'  className='clsInputform-control'/>
+                <input type='password' name='txt_passwordConfirm' placeholder='confirm the password'  className='form-control'/>
                 <br/><br/>
                 <button type='submit'  className='btn btn-primary'>Login</button>
             </div>
