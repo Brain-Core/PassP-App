@@ -9,4 +9,4 @@ app.use('/api/auth', require('./routes/authRoute'));
 app.use('/api/profile', require('./routes/profileRoute'));
 
 const port = process.env.PORT || 4040;
-app.listen(port, () => console.log('listen on port: ', port));
+app.listen(port, () => console.log('listen on port : ', port));

@@ -19,7 +19,7 @@ class Profile extends Component {
                 <input type='text' name='txt_sex' placeholder='Enter the sex' className='form-control'/>
                 </div>
                 <div className='form-group'>
-                <input type='text' name='txt_date' placeholder='Enter the date' className='form-control'/>
+                <input type='date' name='txt_date' placeholder='Enter the date' className='form-control'/>
                 </div>
                 <div className='form-group'>
                 <input type='text' name='txt_nationalite' placeholder='Enter the nationalite' className='form-control'/>
