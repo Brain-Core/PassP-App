@@ -4,6 +4,7 @@ const UserModel = require('../models/user.model');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const protect = require('../middleware/protectedRoute');
 
 // registration
 route.post('/', async (req,res)=>{

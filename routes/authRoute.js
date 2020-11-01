@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const route = express.Router();
+const protect = require('../middleware/protectedRoute');
 
 route.post('/', (req, res) => {
     const {username, password} = req.body;
@@ -26,13 +27,26 @@ route.post('/', (req, res) => {
                             (err, token) => {
                                 if(err) throw err;
                                 res.json({
-                                    token
+                                    token,
+                                    user: {
+                                        id:uName.id,
+                                        name: uName.name
+                                    }
                                 })
                             }
                         )
                     })
             }
         })
+});
+
+route.get('/user', protect, (req,res) => {
+    UserModel.findById(req.params.id)
+    .select('-password')
+        .then(userFound => {
+            res.json(userFound)
+        })
+        .catch(err => res.json({msg: err}));
 })
 
 module.exports = route;
